@@ -1,46 +1,61 @@
-import { BRAND } from "@/types/brand";
+import { BRAND } from "@/types/hearings";
 import Image from "next/image";
 
-const brandData: BRAND[] = [
+const hearingData: BRAND[] = [
   {
     logo: "/images/brand/brand-01.svg",
-    name: "Google",
-    visitors: 3.5,
-    revenues: "5,768",
-    sales: 590,
-    conversion: 4.8,
+    clientName: "Google",
+    caseID: 3.5,
+    lawyerName: "Harvey",
+    court: "H.C. Multan",
+    courtRoom: 590,
+    judge: "Beloni",
+    date: "23-10-2003",
+    time: "12:00 PM"
   },
   {
     logo: "/images/brand/brand-02.svg",
-    name: "X.com",
-    visitors: 2.2,
-    revenues: "4,635",
-    sales: 467,
-    conversion: 4.3,
+    clientName: "X.com",
+    caseID: 2.2,
+    lawyerName: "Harvey",
+    court: "H.C. Multan",
+    courtRoom: 467,
+    judge: "Beloni",
+    date: "23-10-2003",
+    time: "12:00 PM"
   },
   {
     logo: "/images/brand/brand-03.svg",
-    name: "Github",
-    visitors: 2.1,
-    revenues: "4,290",
-    sales: 420,
-    conversion: 3.7,
+    clientName: "Github",
+    caseID: 2.1,
+    lawyerName: "Harvey",
+    court: "H.C. Multan",
+    courtRoom: 420,
+    judge: "Beloni",
+    date: "23-10-2003",
+    time: "12:00 PM"
   },
   {
     logo: "/images/brand/brand-04.svg",
-    name: "Vimeo",
-    visitors: 1.5,
-    revenues: "3,580",
-    sales: 389,
-    conversion: 2.5,
+    clientName: "Vimeo",
+    caseID: 1.5,
+    lawyerName: "Harvey",
+    court: "H.C. Multan",
+    courtRoom: 389,
+    judge: "Beloni",
+    date: "23-10-2003",
+    time: "12:00 PM"
   },
   {
     logo: "/images/brand/brand-05.svg",
-    name: "Facebook",
-    visitors: 1.2,
-    revenues: "2,740",
-    sales: 230,
-    conversion: 1.9,
+    clientName: "Facebook",
+    caseID: 1.2,
+    lawyerName: "Harvey",
+    court: "H.C. Multan",
+    courtRoom: 230,
+    judge: "Beloni",
+    date: "23-10-2003",
+    time: "12:00 PM"
   },
 ];
 
@@ -48,42 +63,57 @@ const TableOne = () => {
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-        Top Channels
+        Upcoming Hearings
       </h4>
 
       <div className="flex flex-col">
-        <div className="grid grid-cols-3 sm:grid-cols-5">
+        <div className="grid grid-cols-4 sm:grid-cols-8">
           <div className="px-2 pb-3.5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Source
+              Client
             </h5>
           </div>
           <div className="px-2 pb-3.5 text-center">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Visitors
+              Case ID
             </h5>
           </div>
           <div className="px-2 pb-3.5 text-center">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Revenues
+              Lawyer
             </h5>
           </div>
           <div className="hidden px-2 pb-3.5 text-center sm:block">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Sales
+              Court
             </h5>
           </div>
           <div className="hidden px-2 pb-3.5 text-center sm:block">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Conversion
+              Court Room
+            </h5>
+          </div>
+          <div className="hidden px-2 pb-3.5 text-center sm:block">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Judge
+            </h5>
+          </div>
+          <div className="hidden px-2 pb-3.5 text-center sm:block">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Date
+            </h5>
+          </div>
+          <div className="hidden px-2 pb-3.5 text-center sm:block">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Time
             </h5>
           </div>
         </div>
 
-        {brandData.map((brand, key) => (
+        {hearingData.map((brand, key) => (
           <div
-            className={`grid grid-cols-3 sm:grid-cols-5 ${
-              key === brandData.length - 1
+            className={`grid grid-cols-4 sm:grid-cols-8 ${
+              key === hearingData.length - 1
                 ? ""
                 : "border-b border-stroke dark:border-dark-3"
             }`}
@@ -94,31 +124,49 @@ const TableOne = () => {
                 <Image src={brand.logo} alt="Brand" width={48} height={48} />
               </div>
               <p className="hidden font-medium text-dark dark:text-white sm:block">
-                {brand.name}
+                {brand.clientName}
               </p>
             </div>
 
             <div className="flex items-center justify-center px-2 py-4">
               <p className="font-medium text-dark dark:text-white">
-                {brand.visitors}K
+                {brand.caseID}
               </p>
             </div>
 
             <div className="flex items-center justify-center px-2 py-4">
-              <p className="font-medium text-green-light-1">
-                ${brand.revenues}
+              <p className="font-medium text-dark dark:text-white">
+                {brand.lawyerName}
+              </p>
+            </div>
+
+            <div className="flex items-center justify-center px-2 py-4">
+              <p className="font-medium text-dark dark:text-white">
+                {brand.court}
               </p>
             </div>
 
             <div className="hidden items-center justify-center px-2 py-4 sm:flex">
               <p className="font-medium text-dark dark:text-white">
-                {brand.sales}
+                #{brand.courtRoom}
               </p>
             </div>
 
             <div className="hidden items-center justify-center px-2 py-4 sm:flex">
               <p className="font-medium text-dark dark:text-white">
-                {brand.conversion}%
+                Judge {brand.judge}
+              </p>
+            </div>
+
+            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+              <p className="font-medium text-dark dark:text-white">
+                {brand.date}
+              </p>
+            </div>
+
+            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+              <p className="font-medium text-dark dark:text-white">
+                {brand.time}
               </p>
             </div>
           </div>

@@ -1,0 +1,112 @@
+.custom-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    background-color: transparent;
+}
+
+.toolbar-buttons button,
+.navigation-buttons button {
+    padding: 0.75rem;
+    border: 1px solid #fff;
+    background-color: #5750F1;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+.toolbar-button:hover {
+    background-color: #1d18aa;
+}
+
+.toolbar-button.active {
+    background-color: #1d18aa;
+    color: white;
+    font-weight: bold;
+}
+
+.toolbar-label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Override the default calendar styles */
+.rbc-calendar {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.rbc-event {
+    background-color: #f0f0f0;
+    color: black;
+    border-left: 4px solid #5750F1;
+    border-radius: 0;
+    margin-top: 0.05rem;
+}
+
+.rbc-day-bg {
+    background-color: #fff;
+}
+
+.rbc-today {
+    background-color: #e6f7ff;
+}
+
+.rbc-off-range-bg {
+    background-color: #f0f0f0;
+}
+
+.rbc-date-cell {
+    font-size: 1.1rem;
+    /* Change the font size of the date */
+    color: #111928;
+    /* Change the color of the date */
+    padding: 0.75rem;
+    /* Adjust the padding as needed */
+}
+
+/* Change the height of the month view cells */
+.rbc-month-row {
+    min-height: 125px;
+    /* Adjust this value as needed */
+    /* padding: 1rem; */
+}
+
+.rbc-month-view .rbc-row-content {
+    min-height: 125px;
+    /* Adjust this value as needed */
+    /* padding: 1rem; */
+}
+
+/* .rbc-time-header-content {
+    padding: 50px;
+    background-color: #5750F1;
+} */
+
+/* Override the default styles for the weekday names */
+.rbc-header {
+    background-color: #5750F1;
+    color: white;
+    /* Optional: Set the text color to black for better contrast */
+    padding: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.rbc-time-header-content .rbc-row-bg{
+    display: none;
+}
+
+.rbc-time-header-content .rbc-row-content{
+    display: none;
+}
+
+.rbc-time-header-content > .rbc-allday-cell{
+    display: none;
+}
+
+.rbc-time-content{
+    overflow-y: visible;
+}
