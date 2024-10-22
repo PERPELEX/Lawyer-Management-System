@@ -39,6 +39,10 @@
     border: 1px solid transparent;
 }
 
+.rbc-month-view{
+    border-radius: 20px;
+}
+
 .rbc-event {
     background-color: #f0f0f0;
     color: black;

@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
+    "@mui/x-data-grid": "^7.20.0",
     "apexcharts": "^3.45.2",
     "flatpickr": "^4.6.13",
     "jsvectormap": "^1.5.3",
@@ -19,13 +24,14 @@
     "react-apexcharts": "^1.4.1",
     "react-big-calendar": "^1.15.0",
     "react-dom": "^18",
+    "react-multistep": "^5.5.9",
     "react-quill": "^2.0.0",
-    "react-select": "^5.8.0",
+    "react-select": "^5.8.1",
     "react-table": "^7.8.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.3.11",
     "@types/react-dom": "^18",
     "@types/react-table": "^7.7.19",
     "autoprefixer": "^10.0.1",

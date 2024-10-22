@@ -15,47 +15,47 @@ const hearingData: BRAND[] = [
   },
   {
     logo: "/images/brand/brand-02.svg",
-    clientName: "X.com",
-    caseID: 2.2,
-    lawyerName: "Harvey",
-    court: "H.C. Multan",
-    courtRoom: 467,
-    judge: "Beloni",
-    date: "23-10-2003",
-    time: "12:00 PM"
+    clientName: "Microsoft",
+    caseID: 7.8,
+    lawyerName: "Rachel",
+    court: "S.C. Karachi",
+    courtRoom: 145,
+    judge: "Thompson",
+    date: "15-06-2005",
+    time: "10:30 AM"
   },
   {
     logo: "/images/brand/brand-03.svg",
-    clientName: "Github",
-    caseID: 2.1,
-    lawyerName: "Harvey",
-    court: "H.C. Multan",
-    courtRoom: 420,
-    judge: "Beloni",
-    date: "23-10-2003",
-    time: "12:00 PM"
+    clientName: "Apple",
+    caseID: 4.2,
+    lawyerName: "Mike",
+    court: "L.C. Lahore",
+    courtRoom: 220,
+    judge: "Anderson",
+    date: "10-12-2010",
+    time: "02:00 PM"
   },
   {
     logo: "/images/brand/brand-04.svg",
-    clientName: "Vimeo",
-    caseID: 1.5,
-    lawyerName: "Harvey",
-    court: "H.C. Multan",
-    courtRoom: 389,
-    judge: "Beloni",
-    date: "23-10-2003",
-    time: "12:00 PM"
+    clientName: "Amazon",
+    caseID: 9.1,
+    lawyerName: "Jessica",
+    court: "H.C. Islamabad",
+    courtRoom: 300,
+    judge: "Hoffman",
+    date: "05-09-2018",
+    time: "09:00 AM"
   },
   {
     logo: "/images/brand/brand-05.svg",
     clientName: "Facebook",
-    caseID: 1.2,
-    lawyerName: "Harvey",
-    court: "H.C. Multan",
-    courtRoom: 230,
-    judge: "Beloni",
-    date: "23-10-2003",
-    time: "12:00 PM"
+    caseID: 6.3,
+    lawyerName: "Louis",
+    court: "S.C. Lahore",
+    courtRoom: 450,
+    judge: "Sullivan",
+    date: "17-11-2021",
+    time: "11:00 AM"
   },
 ];
 
@@ -63,7 +63,7 @@ const TableOne = () => {
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-        Upcoming Hearings
+        Upcoming Proceedings
       </h4>
 
       <div className="flex flex-col">
