@@ -117,7 +117,7 @@ const menuGroups = [
         children: [
           { label: "All", route: "/client" },
           { label: "Add", route: "/client/addClient" },
-          { label: "Update", route: "/" },
+          { label: "Update", route: "/client/updateClient" },
         ],
       },
       {
@@ -147,7 +147,7 @@ const menuGroups = [
         children: [
           { label: "All", route: "/case" },
           { label: "Add", route: "/case/addCase" },
-          { label: "Update", route: "/" },
+          { label: "Update", route: "/case/updateCase" },
         ],
       },
       {
@@ -177,7 +177,7 @@ const menuGroups = [
         children: [
           { label: "All", route: "/employee" },
           { label: "Add", route: "/employee/addEmployee" },
-          { label: "Update", route: "/" },
+          { label: "Update", route: "/employee/updateEmployee" },
         ],
       },
       // {

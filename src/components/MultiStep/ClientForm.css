@@ -1,6 +1,11 @@
 
+.go2392553372 {
+  width: 0%;
+  padding-left: 0;
+}
 
 .go2150698616 {
+  width: 0%;
   background-color: #4CAF50;
   position: absolute;
   left: 50%;
@@ -87,4 +92,13 @@ button{
 
 .display:hover{
   background-color: #6761F2;
+}
+
+.form-container input:focus-visible {
+  border: 1px solid #5750F1;
+  outline: none; /* Optional: Remove the default outline */
+}
+.form-container select:focus-visible{
+  border:1px solid #5750F1;
+  outline: none; /* Optional: Remove the default outline */
 }

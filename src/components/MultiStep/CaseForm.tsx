@@ -11,6 +11,7 @@ import Step5 from './CaseStep5';
 
 
 const MultiStepForm = () => {
+  const [checked, setChecked] = useState(false);
   const [formData, setFormData] = useState({
     client:{
       firstname: '',
@@ -67,11 +68,11 @@ const MultiStepForm = () => {
   });
 
   const steps = [
-    { name: 'Step1', component: <Step1 formData={formData} setFormData={setFormData} /> },
-    { name: 'Step2', component: <Step2 formData={formData} setFormData={setFormData} /> },
-    { name: 'Step3', component: <Step3 formData={formData} setFormData={setFormData} /> },
-    { name: 'Step4', component: <Step4 formData={formData} setFormData={setFormData} /> },
-    { name: 'Step5', component: <Step5 formData={formData} setFormData={setFormData} /> },
+    { name: 'Step1', component: <Step1 formData={formData.client} setFormData={(data) => setFormData({ ...formData, client: data })} /> },
+    { name: 'Step2', component: <Step2 clientData={formData.client} checked={checked} setChecked={setChecked} formData={formData.plantif} setFormData={(data) => setFormData({ ...formData, plantif: data })} /> },
+    { name: 'Step3', component: <Step3 clientData={formData.client} checked={checked} setChecked={setChecked} formData={formData.defendant} setFormData={(data) => setFormData({ ...formData, defendant: data })} /> },
+    { name: 'Step4', component: <Step4 formData={formData.case} setFormData={(data) => setFormData({ ...formData, case: data })} /> },
+    { name: 'Step5', component: <Step5 formData={formData.hearing} setFormData={(data) => setFormData({ ...formData, hearing: data })} /> },
     
     
   ];
