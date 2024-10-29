@@ -97,7 +97,9 @@ const MultiStepForm = () => {
   return (
     <div>
       <h2>Employee Form</h2>
+      <span className='employee-form'>
       <MultiStep steps={steps} />
+      </span>
       <button className="display" onClick={onComplete}>Submit</button>
     </div>
   );

@@ -1,0 +1,11 @@
+.stroke-primary {
+    stroke: rgb(87 80 241); /* Replace with your primary color variable or value */
+  }
+  
+  .stroke-current {
+    stroke: currentColor;
+  } 
+
+  .sideIcon{
+    padding: 10px;
+  }

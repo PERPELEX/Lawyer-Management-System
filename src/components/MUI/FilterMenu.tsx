@@ -1,7 +1,6 @@
 // FilterMenu.tsx
 import React from 'react';
 import { IconButton, MenuItem, FormControlLabel, Checkbox, Tooltip, Fade, Popper, Paper, ClickAwayListener } from '@mui/material';
-import { FilterList as FilterListIcon } from '@mui/icons-material';
 
 interface FilterMenuProps {
   anchorEl: HTMLElement | null;
@@ -21,7 +20,7 @@ const FilterMenu: React.FC<FilterMenuProps> = ({
   <>
     <Tooltip title="Filter" disableHoverListener>
       <IconButton onClick={handleFilterClick}>
-        <FilterListIcon fontSize='large' className='text-white rounded-3xl p-[2px] hover:text-[#1d18aa] hover:bg-white ' />
+      <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-filter icon"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
       </IconButton>
     </Tooltip>
     <Popper

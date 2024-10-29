@@ -1,0 +1,20 @@
+.icon{
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.1s ease-in-out;
+    /* margin-right:5px; */
+}
+
+.icon:hover{
+    stroke: #352bf2;
+    background: #fff;
+}
+
+.iconIn{
+    margin-right: 24px ;
+    transition: all 0.1s ease-in-out;
+}
+
+.iconIn:hover{
+    stroke: #352bf2;
+}

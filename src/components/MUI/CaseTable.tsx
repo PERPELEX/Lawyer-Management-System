@@ -2,6 +2,8 @@
 
 // CaseTable.tsx
 import React, { useState } from 'react';
+import Link from "next/link";
+import './ClientTable.css'
 import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Toolbar, TableSortLabel
 } from '@mui/material';
@@ -207,7 +209,10 @@ const CaseTable: React.FC = () => {
         <Paper sx={{ borderRadius: '22px' }}>
             <Toolbar className='bg-[#5750F1] rounded-t-xl'>
                 <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-                <div className='ml-auto flex justify-between w-[12%]'>
+                <div className='ml-auto mr-4 flex justify-between w-[12%]'>
+                    <Link href="/case/addCase" className='flex justify-center items-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-file-plus icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                    </Link>
                     <FilterMenu
                         anchorEl={filterAnchorEl}
                         filters={filters}

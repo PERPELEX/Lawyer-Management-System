@@ -2,6 +2,8 @@
 
 // ClientTable.tsx
 import React, { useState } from 'react';
+import Link from "next/link";
+import './ClientTable.css'
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Toolbar, TableSortLabel
 } from '@mui/material';
@@ -202,7 +204,28 @@ const ClientTable: React.FC = () => {
     <Paper sx={{ borderRadius: '22px' }}>
       <Toolbar className='bg-[#5750F1] rounded-t-xl'>
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-        <div className='ml-auto flex justify-between w-[12%]'>
+        <div className='ml-auto mr-4 flex justify-between w-[12%]'>
+
+          <Link href="/client/addClient" className='flex justify-center items-center'>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="44"
+              height="44"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-user-plus icon" // Added class here
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+          </Link>
+
           <FilterMenu
             anchorEl={filterAnchorEl}
             filters={filters}
@@ -226,7 +249,7 @@ const ClientTable: React.FC = () => {
 
       <TableContainer component={Paper} sx={{ maxHeight: 500, overflow: 'auto', '&::-webkit-scrollbar': { display: 'none' }, '-ms-overflow-style': 'none', 'scrollbar-width': 'none' }}>
         <Table stickyHeader>
-        <TableHead sx={{ backgroundColor: 'blue' }}>
+          <TableHead sx={{ backgroundColor: 'blue' }}>
             <TableRow sx={{ backgroundColor: 'blue' }}>
               {visibleColumns.name && (
                 <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>

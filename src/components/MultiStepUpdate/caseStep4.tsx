@@ -1,22 +1,46 @@
 "use client";
+import React, { useEffect } from 'react';
 
-import React, { useState } from 'react';
-import MultiStep from 'react-multistep';
-import './ClientForm.css'; // Import the custom CSS file
+const Step4 = ({ caseID, formData, setFormData }) => {
+  useEffect(() => {
+    // Function to fetch defendant data based on caseID
+    const fetchDefendantData = async (caseID) => {
+      // Replace this with your actual data fetching logic
+      // For example, you can use fetch or axios to get data from an API
+      const response = await fetch(`/api/defendant/${caseID}`);
+      const data = await response.json();
 
+      // Update formData with fetched defendant data
+      setFormData({
+        firstname: data.firstname || '',
+        lastName: data.lastName || '',
+        fatherName: data.fatherName || '',
+        nic: data.nic || '',
+        address: data.address || '',
+        occupation: data.occupation || '',
+        cast: data.cast || '',
+        notes: data.notes || '',
+        contactNumber: data.contactNumber || '',
+        email: data.email || '',
+        status: data.status || 'Active',
+      });
+    };
 
-const Step1 = ({ formData, setFormData }) => {
+    if (caseID) {
+      fetchDefendantData(caseID);
+    }
+  }, [caseID, setFormData]);
 
   return (
     <div className="form-container">
-      <h3 className='formTitle'>Client Details</h3>
+      <h3 className='formTitle'>Defendant Details</h3>
 
       <div className='twoInRow'>
         <label>
           First Name:
           <input
             type="text"
-            value={formData.firstname}
+            value={formData.firstname || ''}
             onChange={(e) => setFormData({ ...formData, firstname: e.target.value })}
           />
         </label>
@@ -24,7 +48,7 @@ const Step1 = ({ formData, setFormData }) => {
           Last Name:
           <input
             type="text"
-            value={formData.lastName}
+            value={formData.lastName || ''}
             onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
           />
         </label>
@@ -34,7 +58,7 @@ const Step1 = ({ formData, setFormData }) => {
         Father Name:
         <input
           type="text"
-          value={formData.fatherName}
+          value={formData.fatherName || ''}
           onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
         />
       </label>
@@ -42,7 +66,7 @@ const Step1 = ({ formData, setFormData }) => {
         NIC:
         <input
           type="text"
-          value={formData.nic}
+          value={formData.nic || ''}
           onChange={(e) => setFormData({ ...formData, nic: e.target.value })}
         />
       </label>
@@ -52,7 +76,7 @@ const Step1 = ({ formData, setFormData }) => {
           Cast:
           <input
             type="text"
-            value={formData.cast}
+            value={formData.cast || ''}
             onChange={(e) => setFormData({ ...formData, cast: e.target.value })}
           />
         </label>
@@ -60,7 +84,7 @@ const Step1 = ({ formData, setFormData }) => {
           Occupation:
           <input
             type="text"
-            value={formData.occupation}
+            value={formData.occupation || ''}
             onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
           />
         </label>
@@ -71,7 +95,7 @@ const Step1 = ({ formData, setFormData }) => {
           Contact Number:
           <input
             type="text"
-            value={formData.contactNumber}
+            value={formData.contactNumber || ''}
             onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
           />
         </label>
@@ -79,7 +103,7 @@ const Step1 = ({ formData, setFormData }) => {
           Email:
           <input
             type="email"
-            value={formData.email}
+            value={formData.email || ''}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
         </label>
@@ -89,7 +113,7 @@ const Step1 = ({ formData, setFormData }) => {
         Address:
         <input
           type="text"
-          value={formData.address}
+          value={formData.address || ''}
           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
         />
       </label>
@@ -97,14 +121,14 @@ const Step1 = ({ formData, setFormData }) => {
         Notes:
         <input
           type="text"
-          value={formData.notes}
+          value={formData.notes || ''}
           onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
         />
       </label>
       <label>
         Status:
         <select
-          value={formData.status}
+          value={formData.status || 'Active'}
           onChange={(e) => setFormData({ ...formData, status: e.target.value })}
         >
           <option value="Active">Active</option>
@@ -115,39 +139,4 @@ const Step1 = ({ formData, setFormData }) => {
   );
 };
 
-const MultiStepForm = () => {
-  const [formData, setFormData] = useState({
-    firstname: '',
-    lastName: '',
-    fatherName: '',
-    nic: '',
-    address: '',
-    occupation: '',
-    cast: '',
-    notes: '',
-    contactNumber: '',
-    email: '',
-    status: 'Active',
-  });
-
-  const steps = [
-    { name: 'Step1', component: <Step1 formData={formData} setFormData={setFormData} /> },
-  ];
-
-  const onComplete = () => {
-    // Handle form submission here
-    console.log('Form Submitted:', formData);
-  };
-
-  return (
-    <div>
-      <h2>Client Form</h2>
-      <span className='client-form'>
-        <MultiStep  steps={steps} />
-      </span>
-      <button className="display" onClick={onComplete}>Submit</button>
-    </div>
-  );
-};
-
-export default MultiStepForm;
+export default Step4;

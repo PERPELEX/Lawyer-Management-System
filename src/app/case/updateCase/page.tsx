@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import MultiStepForm from "@/components/MultiStepUpdate/updateEmployee";
+import MultiStepForm from "@/components/MultiStepUpdate/updateCases";
 
 
 
