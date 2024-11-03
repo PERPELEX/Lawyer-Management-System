@@ -73,4 +73,18 @@ router.put(
 // Delete a tenant by ID
 router.delete("/:id", tenantController.deleteTenant);
 
+// --------------------------------------------  Custom Routes --------------------------------------------
+
+// Get users by tenant ID
+router.get("/users/:id", tenantController.getTenantUsersById);
+
+// Get clients by tenant ID
+router.get("/clients/:id", tenantController.getTenantClientsById);
+
+// Get cases by tenant ID
+router.get("/cases/:id", tenantController.getTenantCasesById);
+
+// Get upcoming hearings by tenant ID
+router.get("/hearings/:id", tenantController.getTenantUpcomingHearingsById);
+
 module.exports = router;
