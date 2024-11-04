@@ -72,7 +72,6 @@
 }
 
 .update-form .checkBox {
-  /* width: 70%; */
   margin: 20px 0;
   display: flex;
   flex-direction: row;
@@ -115,7 +114,6 @@ button:hover {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  /* margin: 10px auto 0 auto; */
   margin-top: 10px;
   margin-left: 22.2vw;
 }
@@ -127,11 +125,13 @@ button:hover {
   cursor: not-allowed; /* Change cursor to indicate it's disabled */
   opacity: 0; /* Optional: make the button slightly transparent */
 }
+
 .display {
   display: block;
   background-color: #5750F1;
   color: white;
   padding: 10px 20px;
+  margin-top: 16px;
   margin-left: auto;
   border: none;
   border-radius: 4px;
@@ -140,4 +140,50 @@ button:hover {
 
 .display:hover {
   background-color: #6761F2;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .go2392553372 {
+    padding-left: 15vw;
+  }
+  .update-form .form-container {
+    padding: 15px;
+  }
+
+  .update-form .formTitle {
+    font-size: 1.2rem;
+  }
+
+  .update-form .twoInRow {
+    flex-direction: column;
+  }
+
+  .update-form .twoInRow label {
+    width: 100%;
+  }
+
+  .update-form button {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .go2392553372 {
+    padding-left: 0vw;
+  }
+  .update-form .form-container {
+    padding: 10px;
+  }
+
+  .update-form .formTitle {
+    font-size: 1rem;
+  }
+
+  .display {
+    width: 100%;
+    text-align: center;
+  }
 }

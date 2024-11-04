@@ -202,9 +202,9 @@ const ClientTable: React.FC = () => {
 
   return (
     <Paper sx={{ borderRadius: '22px' }}>
-      <Toolbar className='bg-[#5750F1] rounded-t-xl'>
+      <Toolbar className='bg-[#5750F1] rounded-t-xl flex flex-wrap'>
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-        <div className='ml-auto mr-4 flex justify-between w-[12%]'>
+        <div className='ml-auto mr-4 flex justify-between w-full sm:w-auto'>
 
           <Link href="/client/addClient" className='flex justify-center items-center'>
             <svg
@@ -247,79 +247,81 @@ const ClientTable: React.FC = () => {
         </div>
       </Toolbar>
 
-      <TableContainer component={Paper} sx={{ maxHeight: 500, overflow: 'auto', '&::-webkit-scrollbar': { display: 'none' }, '-ms-overflow-style': 'none', 'scrollbar-width': 'none' }}>
-        <Table stickyHeader>
-          <TableHead sx={{ backgroundColor: 'blue' }}>
-            <TableRow sx={{ backgroundColor: 'blue' }}>
-              {visibleColumns.name && (
-                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                  <TableSortLabel
-                    active={sortConfig?.key === 'name'}
-                    direction={sortConfig?.direction || 'asc'}
-                    onClick={() => handleSort('name')}
-                  >
-                    Name
-                  </TableSortLabel>
-                </TableCell>
-              )}
-              {visibleColumns.fatherName && (
-                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                  <TableSortLabel
-                    active={sortConfig?.key === 'fatherName'}
-                    direction={sortConfig?.direction || 'asc'}
-                    onClick={() => handleSort('fatherName')}
-                  >
-                    Father Name
-                  </TableSortLabel>
-                </TableCell>
-              )}
-              {visibleColumns.contactNumber && (
-                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                  <TableSortLabel
-                    active={sortConfig?.key === 'contactNumber'}
-                    direction={sortConfig?.direction || 'asc'}
-                    onClick={() => handleSort('contactNumber')}
-                  >
-                    Contact Number
-                  </TableSortLabel>
-                </TableCell>
-              )}
-              {visibleColumns.email && (
-                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                  <TableSortLabel
-                    active={sortConfig?.key === 'email'}
-                    direction={sortConfig?.direction || 'asc'}
-                    onClick={() => handleSort('email')}
-                  >
-                    Email
-                  </TableSortLabel>
-                </TableCell>
-              )}
-              {visibleColumns.status && (
-                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                  <TableSortLabel
-                    active={sortConfig?.key === 'status'}
-                    direction={sortConfig?.direction || 'asc'}
-                    onClick={() => handleSort('status')}
-                  >
-                    Status
-                  </TableSortLabel>
-                </TableCell>
-              )}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {filteredClients.map((client) => (
-              <ClientRow
-                key={client.id}
-                client={client}
-                visibleColumns={visibleColumns}
-                expandedRow={expandedRow}
-                handleExpandClick={handleExpandClick}
-              />
-            ))}
-          </TableBody>
-        </Table>
+      <TableContainer component={Paper} className="table-container">
+        <div className="overflow-x-auto">
+          <Table stickyHeader>
+            <TableHead sx={{ backgroundColor: 'blue' }}>
+              <TableRow sx={{ backgroundColor: 'blue' }}>
+                {visibleColumns.name && (
+                  <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                    <TableSortLabel
+                      active={sortConfig?.key === 'name'}
+                      direction={sortConfig?.direction || 'asc'}
+                      onClick={() => handleSort('name')}
+                    >
+                      Name
+                    </TableSortLabel>
+                  </TableCell>
+                )}
+                {visibleColumns.fatherName && (
+                  <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                    <TableSortLabel
+                      active={sortConfig?.key === 'fatherName'}
+                      direction={sortConfig?.direction || 'asc'}
+                      onClick={() => handleSort('fatherName')}
+                    >
+                      Father Name
+                    </TableSortLabel>
+                  </TableCell>
+                )}
+                {visibleColumns.contactNumber && (
+                  <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                    <TableSortLabel
+                      active={sortConfig?.key === 'contactNumber'}
+                      direction={sortConfig?.direction || 'asc'}
+                      onClick={() => handleSort('contactNumber')}
+                    >
+                      Contact Number
+                    </TableSortLabel>
+                  </TableCell>
+                )}
+                {visibleColumns.email && (
+                  <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                    <TableSortLabel
+                      active={sortConfig?.key === 'email'}
+                      direction={sortConfig?.direction || 'asc'}
+                      onClick={() => handleSort('email')}
+                    >
+                      Email
+                    </TableSortLabel>
+                  </TableCell>
+                )}
+                {visibleColumns.status && (
+                  <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                    <TableSortLabel
+                      active={sortConfig?.key === 'status'}
+                      direction={sortConfig?.direction || 'asc'}
+                      onClick={() => handleSort('status')}
+                    >
+                      Status
+                    </TableSortLabel>
+                  </TableCell>
+                )}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {filteredClients.map((client) => (
+                <ClientRow
+                  key={client.id}
+                  client={client}
+                  visibleColumns={visibleColumns}
+                  expandedRow={expandedRow}
+                  handleExpandClick={handleExpandClick}
+                />
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </TableContainer>
     </Paper>
   );

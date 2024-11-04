@@ -82,6 +82,7 @@ button:hover {
   background-color: #5750F1;
   color: white;
   padding: 10px 20px;
+  margin-top: 16px;
   margin-left: auto;
   border: none;
   border-radius: 4px;
@@ -100,4 +101,44 @@ button:hover {
 .client-form .form-container select:focus-visible {
   border: 1px solid #5750F1;
   outline: none; /* Optional: Remove the default outline */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .client-form .form-container {
+    padding: 15px;
+  }
+
+  .client-form .formTitle {
+    font-size: 1.2rem;
+  }
+
+  .client-form .twoInRow {
+    flex-direction: column;
+  }
+
+  .client-form .twoInRow label {
+    width: 100%;
+  }
+
+  .display {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-form .form-container {
+    padding: 10px;
+  }
+
+  .client-form .formTitle {
+    font-size: 1rem;
+  }
+
+  .display {
+    width: 100%;
+    text-align: center;
+  }
 }

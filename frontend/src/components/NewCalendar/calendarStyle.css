@@ -4,6 +4,7 @@
     align-items: center;
     padding-bottom: 20px;
     background-color: transparent;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .toolbar-buttons button,
@@ -33,6 +34,7 @@
     font-size: 1.25rem;
     font-weight: bold;
     color: black;
+    margin: 10px 0; /* Add margin for better spacing */
 }
 
 /* Override the default calendar styles */
@@ -41,7 +43,7 @@
     border: 1px solid transparent;
 }
 
-.rbc-month-view{
+.rbc-month-view {
     border-radius: 20px;
 }
 
@@ -101,18 +103,82 @@
     font-size: 1.1rem;
 }
 
-.rbc-time-header-content .rbc-row-bg{
+.rbc-time-header-content .rbc-row-bg {
     display: none;
 }
 
-.rbc-time-header-content .rbc-row-content{
+.rbc-time-header-content .rbc-row-content {
     display: none;
 }
 
-.rbc-time-header-content > .rbc-allday-cell{
+.rbc-time-header-content > .rbc-allday-cell {
     display: none;
 }
 
-.rbc-time-content{
+.rbc-time-content {
     overflow-y: visible;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .custom-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toolbar-label {
+        font-size: 1rem;
+    }
+
+    .toolbar-button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .rbc-date-cell {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .rbc-header {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .rbc-month-row,
+    .rbc-month-view .rbc-row-content {
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolbar-buttons,
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .toolbar-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .toolbar-label {
+        font-size: 0.9rem;
+    }
+
+    .rbc-date-cell {
+        font-size: 0.9rem;
+        padding: 0.25rem;
+    }
+
+    .rbc-header {
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+    }
+
+    .rbc-month-row,
+    .rbc-month-view .rbc-row-content {
+        min-height: 75px;
+    }
 }

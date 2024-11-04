@@ -66,111 +66,113 @@ const TableOne = () => {
         Upcoming Proceedings
       </h4>
 
-      <div className="flex flex-col">
-        <div className="grid grid-cols-4 sm:grid-cols-8">
-          <div className="px-2 pb-3.5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Client
-            </h5>
+      <div className="overflow-x-auto">
+        <div className="min-w-[800px]">
+          <div className="grid grid-cols-4 sm:grid-cols-8">
+            <div className="px-2 pb-3.5">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Client
+              </h5>
+            </div>
+            <div className="px-2 pb-3.5 text-center">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Case ID
+              </h5>
+            </div>
+            <div className="px-2 pb-3.5 text-center">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Lawyer
+              </h5>
+            </div>
+            <div className="hidden px-2 pb-3.5 text-center sm:block">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Court
+              </h5>
+            </div>
+            <div className="hidden px-2 pb-3.5 text-center sm:block">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Court Room
+              </h5>
+            </div>
+            <div className="hidden px-2 pb-3.5 text-center sm:block">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Judge
+              </h5>
+            </div>
+            <div className="hidden px-2 pb-3.5 text-center sm:block">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Date
+              </h5>
+            </div>
+            <div className="hidden px-2 pb-3.5 text-center sm:block">
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                Time
+              </h5>
+            </div>
           </div>
-          <div className="px-2 pb-3.5 text-center">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Case ID
-            </h5>
-          </div>
-          <div className="px-2 pb-3.5 text-center">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Lawyer
-            </h5>
-          </div>
-          <div className="hidden px-2 pb-3.5 text-center sm:block">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Court
-            </h5>
-          </div>
-          <div className="hidden px-2 pb-3.5 text-center sm:block">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Court Room
-            </h5>
-          </div>
-          <div className="hidden px-2 pb-3.5 text-center sm:block">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Judge
-            </h5>
-          </div>
-          <div className="hidden px-2 pb-3.5 text-center sm:block">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Date
-            </h5>
-          </div>
-          <div className="hidden px-2 pb-3.5 text-center sm:block">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Time
-            </h5>
-          </div>
-        </div>
 
-        {hearingData.map((brand, key) => (
-          <div
-            className={`grid grid-cols-4 sm:grid-cols-8 ${
-              key === hearingData.length - 1
-                ? ""
-                : "border-b border-stroke dark:border-dark-3"
-            }`}
-            key={key}
-          >
-            <div className="flex items-center gap-3.5 px-2 py-4">
-              <div className="flex-shrink-0">
-                <Image src={brand.logo} alt="Brand" width={48} height={48} />
+          {hearingData.map((brand, key) => (
+            <div
+              className={`grid grid-cols-4 sm:grid-cols-8 ${
+                key === hearingData.length - 1
+                  ? ""
+                  : "border-b border-stroke dark:border-dark-3"
+              }`}
+              key={key}
+            >
+              <div className="flex items-center gap-3.5 px-2 py-4">
+                <div className="flex-shrink-0">
+                  <Image src={brand.logo} alt="Brand" width={48} height={48} />
+                </div>
+                <p className="hidden font-medium text-dark dark:text-white sm:block">
+                  {brand.clientName}
+                </p>
               </div>
-              <p className="hidden font-medium text-dark dark:text-white sm:block">
-                {brand.clientName}
-              </p>
-            </div>
 
-            <div className="flex items-center justify-center px-2 py-4">
-              <p className="font-medium text-dark dark:text-white">
-                {brand.caseID}
-              </p>
-            </div>
+              <div className="flex items-center justify-center px-2 py-4">
+                <p className="font-medium text-dark dark:text-white">
+                  {brand.caseID}
+                </p>
+              </div>
 
-            <div className="flex items-center justify-center px-2 py-4">
-              <p className="font-medium text-dark dark:text-white">
-                {brand.lawyerName}
-              </p>
-            </div>
+              <div className="flex items-center justify-center px-2 py-4">
+                <p className="font-medium text-dark dark:text-white">
+                  {brand.lawyerName}
+                </p>
+              </div>
 
-            <div className="flex items-center justify-center px-2 py-4">
-              <p className="font-medium text-dark dark:text-white">
-                {brand.court}
-              </p>
-            </div>
+              <div className="flex items-center justify-center px-2 py-4">
+                <p className="font-medium text-dark dark:text-white">
+                  {brand.court}
+                </p>
+              </div>
 
-            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
-              <p className="font-medium text-dark dark:text-white">
-                #{brand.courtRoom}
-              </p>
-            </div>
+              <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+                <p className="font-medium text-dark dark:text-white">
+                  #{brand.courtRoom}
+                </p>
+              </div>
 
-            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
-              <p className="font-medium text-dark dark:text-white">
-                Judge {brand.judge}
-              </p>
-            </div>
+              <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+                <p className="font-medium text-dark dark:text-white">
+                  Judge {brand.judge}
+                </p>
+              </div>
 
-            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
-              <p className="font-medium text-dark dark:text-white">
-                {brand.date}
-              </p>
-            </div>
+              <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+                <p className="font-medium text-dark dark:text-white">
+                  {brand.date}
+                </p>
+              </div>
 
-            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
-              <p className="font-medium text-dark dark:text-white">
-                {brand.time}
-              </p>
+              <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+                <p className="font-medium text-dark dark:text-white">
+                  {brand.time}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -207,11 +207,11 @@ const CaseTable: React.FC = () => {
 
     return (
         <Paper sx={{ borderRadius: '22px' }}>
-            <Toolbar className='bg-[#5750F1] rounded-t-xl'>
+            <Toolbar className='bg-[#5750F1] rounded-t-xl flex flex-wrap'>
                 <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-                <div className='ml-auto mr-4 flex justify-between w-[12%]'>
+                <div className='ml-auto mr-4 flex justify-between w-full sm:w-auto'>
                     <Link href="/case/addCase" className='flex justify-center items-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-file-plus icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file-plus icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
                     </Link>
                     <FilterMenu
                         anchorEl={filterAnchorEl}
@@ -219,92 +219,92 @@ const CaseTable: React.FC = () => {
                         handleFilterClick={(e) => setFilterAnchorEl(e.currentTarget)}
                         handleFilterClose={() => setFilterAnchorEl(null)}
                         toggleFilter={(filter) =>
-                            setFilters((prev) => ({ ...prev, [filter]: !prev[filter] }))}
-                    />
+                            setFilters((prev) => ({ ...prev, [filter]: !prev[filter] }))} />
                     <ColumnVisibilityMenu
                         anchorEl={showAnchorEl}
                         visibleColumns={visibleColumns}
                         handleShowClick={(e) => setShowAnchorEl(e.currentTarget)}
                         handleShowClose={() => setShowAnchorEl(null)}
                         toggleColumnVisibility={(column) =>
-                            setVisibleColumns((prev) => ({ ...prev, [column]: !prev[column] }))}
-                    />
+                            setVisibleColumns((prev) => ({ ...prev, [column]: !prev[column] }))} />
                 </div>
             </Toolbar>
 
-            <TableContainer component={Paper} sx={{ maxHeight: 500, overflow: 'auto', '&::-webkit-scrollbar': { display: 'none' }, '-ms-overflow-style': 'none', 'scrollbar-width': 'none' }}>
-                <Table stickyHeader>
-                    <TableHead sx={{ backgroundColor: 'blue' }}>
-                        <TableRow sx={{ backgroundColor: 'blue' }}>
-                            {visibleColumns.clientName && (
-                                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                                    <TableSortLabel
-                                        active={sortConfig?.key === 'clientName'}
-                                        direction={sortConfig?.direction || 'asc'}
-                                        onClick={() => handleSort('clientName')}
-                                    >
-                                        Client Name
-                                    </TableSortLabel>
-                                </TableCell>
-                            )}
-                            {visibleColumns.lawyerName && (
-                                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                                    <TableSortLabel
-                                        active={sortConfig?.key === 'lawyerName'}
-                                        direction={sortConfig?.direction || 'asc'}
-                                        onClick={() => handleSort('lawyerName')}
-                                    >
-                                        Lawyer Name
-                                    </TableSortLabel>
-                                </TableCell>
-                            )}
-                            {visibleColumns.offense && (
-                                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                                    <TableSortLabel
-                                        active={sortConfig?.key === 'offense'}
-                                        direction={sortConfig?.direction || 'asc'}
-                                        onClick={() => handleSort('offense')}
-                                    >
-                                        Offense
-                                    </TableSortLabel>
-                                </TableCell>
-                            )}
-                            {visibleColumns.courtName && (
-                                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                                    <TableSortLabel
-                                        active={sortConfig?.key === 'courtName'}
-                                        direction={sortConfig?.direction || 'asc'}
-                                        onClick={() => handleSort('courtName')}
-                                    >
-                                        Court Name
-                                    </TableSortLabel>
-                                </TableCell>
-                            )}
-                            {visibleColumns.status && (
-                                <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
-                                    <TableSortLabel
-                                        active={sortConfig?.key === 'status'}
-                                        direction={sortConfig?.direction || 'asc'}
-                                        onClick={() => handleSort('status')}
-                                    >
-                                        Status
-                                    </TableSortLabel>
-                                </TableCell>
-                            )}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {filteredCases.map((caseData) => (
-                            <CaseRow
-                                key={caseData.caseId}
-                                caseData={caseData}
-                                visibleColumns={visibleColumns}
-                                expandedRow={expandedRow}
-                                handleExpandClick={handleExpandClick}
-                            />
-                        ))}
-                    </TableBody>
-                </Table>
+            <TableContainer component={Paper} className="table-container">
+                <div className="overflow-x-auto">
+                    <Table stickyHeader>
+                        <TableHead sx={{ backgroundColor: 'blue' }}>
+                            <TableRow sx={{ backgroundColor: 'blue' }}>
+                                {visibleColumns.clientName && (
+                                    <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                                        <TableSortLabel
+                                            active={sortConfig?.key === 'clientName'}
+                                            direction={sortConfig?.direction || 'asc'}
+                                            onClick={() => handleSort('clientName')}
+                                        >
+                                            Client Name
+                                        </TableSortLabel>
+                                    </TableCell>
+                                )}
+                                {visibleColumns.lawyerName && (
+                                    <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                                        <TableSortLabel
+                                            active={sortConfig?.key === 'lawyerName'}
+                                            direction={sortConfig?.direction || 'asc'}
+                                            onClick={() => handleSort('lawyerName')}
+                                        >
+                                            Lawyer Name
+                                        </TableSortLabel>
+                                    </TableCell>
+                                )}
+                                {visibleColumns.offense && (
+                                    <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                                        <TableSortLabel
+                                            active={sortConfig?.key === 'offense'}
+                                            direction={sortConfig?.direction || 'asc'}
+                                            onClick={() => handleSort('offense')}
+                                        >
+                                            Offense
+                                        </TableSortLabel>
+                                    </TableCell>
+                                )}
+                                {visibleColumns.courtName && (
+                                    <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                                        <TableSortLabel
+                                            active={sortConfig?.key === 'courtName'}
+                                            direction={sortConfig?.direction || 'asc'}
+                                            onClick={() => handleSort('courtName')}
+                                        >
+                                            Court Name
+                                        </TableSortLabel>
+                                    </TableCell>
+                                )}
+                                {visibleColumns.status && (
+                                    <TableCell sx={{ fontSize: '1.15rem', fontWeight: "550", color: "#666" }}>
+                                        <TableSortLabel
+                                            active={sortConfig?.key === 'status'}
+                                            direction={sortConfig?.direction || 'asc'}
+                                            onClick={() => handleSort('status')}
+                                        >
+                                            Status
+                                        </TableSortLabel>
+                                    </TableCell>
+                                )}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {filteredCases.map((caseData) => (
+                                <CaseRow
+                                    key={caseData.caseId}
+                                    caseData={caseData}
+                                    visibleColumns={visibleColumns}
+                                    expandedRow={expandedRow}
+                                    handleExpandClick={handleExpandClick}
+                                />
+                            ))}
+                        </TableBody>
+                    </Table>
+                </div>
             </TableContainer>
         </Paper>
     );

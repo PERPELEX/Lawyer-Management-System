@@ -101,3 +101,59 @@ button:hover {
   border: 1px solid #5750F1;
   outline: none; /* Optional: Remove the default outline */
 }
+
+.display {
+  display: block;
+  background-color: #5750F1;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 16px;
+  margin-left: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.display:hover {
+  background-color: #6761F2;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {  
+  .employee-form .form-container {
+    padding: 15px;
+  }
+
+  .employee-form .formTitle {
+    font-size: 1.2rem;
+  }
+
+  .employee-form .twoInRow {
+    flex-direction: column;
+  }
+
+  .employee-form .twoInRow label {
+    width: 100%;
+  }
+
+  .employee-form .display {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .employee-form .form-container {
+    padding: 10px;
+  }
+
+  .employee-form .formTitle {
+    font-size: 1rem;
+  }
+
+  .employee-form .display {
+    width: 100%;
+    text-align: center;
+  }
+}
