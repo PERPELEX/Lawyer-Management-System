@@ -84,7 +84,7 @@ const MultiStepForm = () => {
 
   return (
     <div>
-      <h2>Client Form</h2>
+      <h2>Add Case Form</h2>
       <MultiStep steps={steps} />
       <button className="display" onClick={onComplete}>Submit</button>
     </div>

@@ -18,3 +18,12 @@
 .iconIn:hover{
     stroke: #352bf2;
 }
+
+.iconInIn{
+    margin-right: 12px ;
+    transition: all 0.1s ease-in-out;
+}
+
+.iconInIn:hover{
+    stroke: #0d03c6;
+}

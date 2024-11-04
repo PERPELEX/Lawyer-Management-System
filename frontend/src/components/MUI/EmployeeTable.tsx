@@ -152,7 +152,7 @@ const EmployeeTable: React.FC = () => {
             <Toolbar className='bg-[#5750F1] rounded-t-xl'>
                 <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
                 <div className='ml-auto mr-4 flex justify-between w-[12%]'>
-                    <Link href="/client/addClient" className='flex justify-center items-center'>
+                    <Link href="/employee/addEmployee" className='flex justify-center items-center'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="44"

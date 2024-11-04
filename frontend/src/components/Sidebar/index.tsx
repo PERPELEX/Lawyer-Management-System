@@ -15,7 +15,7 @@ interface SidebarProps {
 
 const menuGroups = [
   {
-    name: "MAIN MENU",
+    // name: "",
     menuItems: [
       {
         icon: (
@@ -40,11 +40,12 @@ const menuGroups = [
         ),
         label: "Clients",
         route: "/client",
-        children: [
-          { label: "All", route: "/client" },
-          { label: "Add", route: "/client/addClient" },
-          { label: "Update", route: "/client/updateClient" },
-        ],
+        // children: [
+        //   { label: "All", route: "/client" },
+        //   { label: "Add", route: "/client/addClient" },
+        //   { label: "Update", route: "/client/updateClient" },
+        //   { label: "Delete", route: "/client/deleteClient" },
+        // ],
       },
       {
         icon: (
@@ -52,23 +53,35 @@ const menuGroups = [
         ),
         label: "Cases",
         route: "/case",
-        children: [
-          { label: "All", route: "/case" },
-          { label: "Add", route: "/case/addCase" },
-          { label: "Update", route: "/case/updateCase" },
-        ],
+        // children: [
+        //   { label: "All", route: "/case" },
+        //   { label: "Add", route: "/case/addCase" },
+        //   { label: "Update", route: "/case/updateCase" },
+        //   { label: "Delete", route: "/case/deleteCase" },
+        // ],
       },
+      // {
+      //   icon: (
+      //     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      //   ),
+      //   label: "Proceedings",
+      //   route: "/proceeding/addProceeding",
+      //   children: [
+      //     { label: "Add", route: "/proceeding/addProceeding" },
+      //   ],
+      // },
       {
         icon: (
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         ),
         label: "Employees",
         route: "/employee",
-        children: [
-          { label: "All", route: "/employee" },
-          { label: "Add", route: "/employee/addEmployee" },
-          { label: "Update", route: "/employee/updateEmployee" },
-        ],
+        // children: [
+        //   { label: "All", route: "/employee" },
+        //   { label: "Add", route: "/employee/addEmployee" },
+        //   { label: "Update", route: "/employee/updateEmployee" },
+        //   { label: "Delete", route: "/employee/deleteEmployee" },
+        // ],
       },
       // {
       //   icon: (
@@ -346,10 +359,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <nav className="mt-1 px-4 lg:px-6">
             {menuGroups.map((group, groupIndex) => (
               <div key={groupIndex}>
-                <h3 className="mb-5 text-sm font-medium text-dark-4 dark:text-dark-6">
-                  {group.name}
-                </h3>
-
                 <ul className="mb-6 flex flex-col gap-2">
                   {group.menuItems.map((menuItem, menuIndex) => (
                     <SidebarItem

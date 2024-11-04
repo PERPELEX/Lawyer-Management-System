@@ -70,14 +70,14 @@
 }
 
 button:hover {
-  background-color: #45a049; */
+  background-color: #45a049; 
 /* } */
 
 .client-form button {
   display: none;
 }
 
-.client-form .display {
+.display {
   display: block;
   background-color: #5750F1;
   color: white;
@@ -88,7 +88,7 @@ button:hover {
   cursor: pointer;
 }
 
-.client-form .display:hover {
+.display:hover {
   background-color: #6761F2;
 }
 

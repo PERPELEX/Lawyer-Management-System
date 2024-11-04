@@ -54,6 +54,7 @@ const MultiStepForm = () => {
   return (
     <div>
       <h2>Update Client Form</h2>
+      <h2>Search bar to not be used and instead using data brought from link</h2>
       <span className='update-form'>
         <MultiStep steps={steps} />
       </span>

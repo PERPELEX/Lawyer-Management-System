@@ -72,7 +72,8 @@ const MultiStepForm = () => {
 
     return (
         <div>
-            <h2>Client Form</h2>
+            <h2>Update Case Form</h2>
+            <h2>Search bar to not be used and instead using data brought from link</h2>
             <MultiStep steps={steps} />
             <button className="display" onClick={onComplete}>Submit</button>
         </div>
