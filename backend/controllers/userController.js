@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
-const { User, Tenant } = require("../models");
+const { User, Tenant, Case, Hearing } = require("../models");
+const { where } = require("sequelize");
 
 // Helper function to find a user by ID
 const findUserById = async (id, res) => {
@@ -120,6 +121,40 @@ exports.deleteUser = async (req, res) => {
   try {
     await user.destroy();
     return res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+// --------------------------------------------------------  Associated Routes --------------------------------------------------------
+
+// Contoller to get all cases by user ID
+exports.getUserCasesById = async (req, res) => {
+  try {
+    const cases = await Case.findAll({ where: { user_id: req.params.id } });
+    return res.status(200).json(cases);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+// Contoller to get all upcoming hearings by user ID
+exports.getUserUpcomingHearingsById = async (req, res) => {
+  try {
+    const cases = await Case.findAll({
+      where: { user_id: req.params.id },
+      include: [
+        {
+          model: Hearing,
+          where: { hearing_date: { [Op.gt]: new Date() } },
+        },
+      ],
+    });
+    return res.status(200).json(cases);
   } catch (error) {
     return res
       .status(500)

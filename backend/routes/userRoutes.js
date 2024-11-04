@@ -72,4 +72,15 @@ router.put(
 // Delete user by ID
 router.delete("/:id", userController.deleteUser);
 
+// --------------------------------------------  Custom Routes --------------------------------------------
+
+// Get cases by user ID
+router.get("/:id/cases", userController.getUserCasesById);
+
+// Get upcoming hearings by user ID
+router.get(
+  "/:id/upcoming-hearings",
+  userController.getUserUpcomingHearingsById
+);
+
 module.exports = router;

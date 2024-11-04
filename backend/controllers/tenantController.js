@@ -1,4 +1,5 @@
-const { Tenant } = require("../models");
+const { Tenant, User, Case, Proceeding } = require("../models");
+const { Op } = require("sequelize");
 
 // Helper function to find a tenant by ID
 const findTenantById = async (id, res) => {
@@ -94,6 +95,85 @@ exports.deleteTenant = async (req, res) => {
   try {
     await tenant.destroy();
     return res.status(200).json({ message: "Tenant deleted successfully" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+// -------------------------------------------- Associated Routes --------------------------------------------
+
+// Controller to get users by tenant ID
+exports.getTenantUsersById = async (req, res) => {
+  try {
+    const users = await User.findAll({
+      where: { tenant_id: req.params.id },
+    });
+    return res.status(200).json(users);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+// Controller to get clients by tenant ID
+exports.getTenantClientsById = async (req, res) => {
+  try {
+    const clients = await User.findAll({
+      where: { tenant_id: req.params.id, role: "client" },
+    });
+    return res.status(200).json(clients);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+// Controller to get cases by tenant ID
+exports.getTenantCasesById = async (req, res) => {
+  try {
+    const cases = await Case.findAll({
+      where: { tenant_id: req.params.id },
+    });
+    return res.status(200).json(cases);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+// Controller to get upcoming hearings by tenant ID
+exports.getTenantUpcomingHearingsById = async (req, res) => {
+  try {
+    const tenantId = req.params.id;
+
+    // First, fetch the cases
+    const cases = await Case.findAll({
+      where: { tenant_id: tenantId },
+    });
+
+    // Then, fetch the proceedings related to those cases
+    const caseIds = cases.map((c) => c.id);
+    const proceedings = await Proceeding.findAll({
+      where: {
+        case_id: { [Op.in]: caseIds },
+        next_hearing_date: { [Op.gt]: new Date() },
+      },
+      attributes: ["case_id", "next_hearing_date"],
+    });
+
+    // Combine the results
+    const casesWithProceedings = cases.map((caseItem) => ({
+      ...caseItem.toJSON(),
+      proceedings: proceedings.filter(
+        (proceeding) => proceeding.case_id === caseItem.id
+      ),
+    }));
+    return res.status(200).json(casesWithProceedings);
   } catch (error) {
     return res
       .status(500)
