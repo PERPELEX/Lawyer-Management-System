@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TableRow, TableCell, Collapse, Box } from '@mui/material';
+import { TableRow, TableCell, Collapse, Box, Button } from '@mui/material';
 import { Case } from '@/types/Case';
 import Link from "next/link";
 import './ClientTable.css';
@@ -23,17 +23,41 @@ const sampleProceedings: Proceeding[] = [
   {
     proceedingId: 1,
     caseId: 1,
-    date: '2023-10-01',
+    date: '2025-10-01',
     description: 'Initial hearing',
   },
   {
     proceedingId: 2,
     caseId: 1,
-    date: '2023-10-15',
+    date: '2025-10-15',
     description: 'Witness testimony',
   },
   {
     proceedingId: 3,
+    caseId: 1,
+    date: '2025-10-15',
+    description: 'Witness testimony',
+  },
+  {
+    proceedingId: 4,
+    caseId: 1,
+    date: '2025-10-15',
+    description: 'Witness testimony',
+  },
+  {
+    proceedingId: 5,
+    caseId: 1,
+    date: '2023-11-01',
+    description: 'Evidence presentation',
+  },
+  {
+    proceedingId: 6,
+    caseId: 2,
+    date: '2023-11-01',
+    description: 'Evidence presentation',
+  },
+  {
+    proceedingId: 7,
     caseId: 2,
     date: '2023-11-01',
     description: 'Evidence presentation',
@@ -47,9 +71,12 @@ const CaseRow: React.FC<CaseRowProps> = ({ caseData, visibleColumns, expandedRow
     if (expandedRow === caseData.caseId) {
       // Use sample data instead of fetching
       const caseProceedings = sampleProceedings.filter(p => p.caseId === caseData.caseId);
-      setProceedings(caseProceedings);
+      const futureProceedings = caseProceedings.filter(p => new Date(p.date) > new Date());
+      setProceedings(futureProceedings);
     }
   }, [expandedRow, caseData.caseId]);
+
+  const displayedProceedings = proceedings.slice(0, 3);
 
   return (
     <>
@@ -89,13 +116,13 @@ const CaseRow: React.FC<CaseRowProps> = ({ caseData, visibleColumns, expandedRow
                 <h4 className="text-lg font-semibold mb-2">Proceedings:</h4>
                 {proceedings.length > 0 ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {proceedings.map((proceeding) => (
+                    {displayedProceedings.map((proceeding) => (
                       <div
                         key={proceeding.proceedingId}
                         className="bg-blue-300 p-4 rounded-lg shadow-md mb-6 flex flex-col"
                       >
                         <div className='flex flex-row w-[100%] justify-between mb-4'>
-                          <h4 className='font-bold text-lg'>Procceding {proceeding.proceedingId}</h4>
+                          <h4 className='font-bold text-lg'>Proceeding {proceeding.proceedingId}</h4>
                           <div className='flex flex-row'>
                             <Link href="/proceeding/updateProceeding" className='flex justify-center items-center'>
                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-edit iconInIn"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
@@ -115,8 +142,19 @@ const CaseRow: React.FC<CaseRowProps> = ({ caseData, visibleColumns, expandedRow
                 ) : (
                   <p>No proceedings available for this case.</p>
                 )}
+                {proceedings.length > 3 && (
+                  <div className='mb-8 w-[100%] flex justify-end '>
+                    <Link href={{
+                      pathname: "/proceeding/allProceeding",
+                      query: { proceedings: JSON.stringify(proceedings) }
+                    }}>
+                      <button className='mr-4 bg-[#5750F1] px-4 py-2 rounded-lg text-white text-lg transition-all ease-in-out duration-200 hover:bg-[#1d18aa]'>
+                        View All
+                      </button>
+                    </Link>
+                  </div>
+                )}
               </div>
-
             </Box>
           </Collapse>
         </TableCell>

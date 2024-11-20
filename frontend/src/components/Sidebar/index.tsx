@@ -83,6 +83,18 @@ const menuGroups = [
         //   { label: "Delete", route: "/employee/deleteEmployee" },
         // ],
       },
+      {
+        icon: (
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg>
+        ),
+        label: "Root",
+        route: "/root/tenant",
+        children: [
+          { label: "Tenant", route: "/root/tenant" },
+          { label: "Judge", route: "/root/judge" },
+          { label: "Court", route: "/root/court" },
+        ],
+      },
       // {
       //   icon: (
       //     <svg
