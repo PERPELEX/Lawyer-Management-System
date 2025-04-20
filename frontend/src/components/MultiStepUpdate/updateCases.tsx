@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import MultiStep from 'react-multistep';
 import './updateCase.css'; // Import the custom CSS file
 import Step1 from './caseStep1';
-import Step2 from './CaseStep2';
-import Step3 from './CaseStep3';
-import Step4 from './CaseStep4';
-import Step5 from './CaseStep5';
+import Step2 from './caseStep2';
+import Step3 from './caseStep3';
+import Step4 from './caseStep4';
+import Step5 from './caseStep5';
 
 
 const MultiStepForm = () => {

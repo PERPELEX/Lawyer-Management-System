@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Calendar, momentLocalizer, View, SlotInfo } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './CalendarStyle.css'; // Import your custom styles
+import './calendarStyle.css'; // Import your custom styles
 
 // Set up moment.js as the localizer
 const localizer = momentLocalizer(moment);
