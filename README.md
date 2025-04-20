@@ -14,7 +14,7 @@ Frontend for a Lawyer Management System designed for any lawyer or small firm to
 
 ## Known Issues
 
-The application currently suffers from a **hydration error** due to inexperience in backend development. As a result, it cannot be deployed at the moment. However, work is in progress to resolve the issue and deploy the application soon.
+Deployment Issues with State Communication Problems
 
 ## How to Start
 
