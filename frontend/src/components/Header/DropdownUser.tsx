@@ -13,7 +13,7 @@ const DropdownUser = () => {
         className="flex items-center gap-4"
         href="#"
       >
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-10 w-10 rounded-full">
           <Image
             width={112}
             height={112}
